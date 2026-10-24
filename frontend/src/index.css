@@ -48,3 +48,88 @@ body {
 .leaflet-popup-tip {
   background: #0f172a !important;
 }
+
+/* Animated flow line for downstream GLOF flood path */
+@keyframes flood-flow-dash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.flood-flowline {
+  stroke-dasharray: 8, 8;
+  animation: flood-flow-dash 1.2s linear infinite;
+}
+
+/* Radar pulse animation for Sentinel-1 swath */
+@keyframes radar-swath-pulse {
+  0%, 100% {
+    fill-opacity: 0.12;
+    stroke-opacity: 0.5;
+  }
+  50% {
+    fill-opacity: 0.28;
+    stroke-opacity: 0.9;
+  }
+}
+
+.radar-swath-anim {
+  animation: radar-swath-pulse 2.5s ease-in-out infinite;
+}
+
+/* Custom pulsing map marker */
+@keyframes marker-halo-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+.pulse-circle {
+  animation: marker-halo-pulse 2s infinite ease-out;
+  transform-origin: center;
+}
+
+/* Inundated active flood surge wave */
+@keyframes flood-surge-wave {
+  0% {
+    stroke-opacity: 0.9;
+    stroke-width: 6;
+  }
+  50% {
+    stroke-opacity: 1;
+    stroke-width: 10;
+  }
+  100% {
+    stroke-opacity: 0.9;
+    stroke-width: 6;
+  }
+}
+
+.flood-surge-active {
+  animation: flood-surge-wave 1s ease-in-out infinite;
+}
+
+/* Siren alert pulse */
+@keyframes siren-blink {
+  0%, 100% {
+    fill: #ef4444;
+  }
+  50% {
+    fill: #f59e0b;
+  }
+}
+
+.siren-beacon {
+  animation: siren-blink 0.8s infinite;
+}
+
+
